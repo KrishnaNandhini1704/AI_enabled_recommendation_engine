@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligence Dashboard | OmniRec AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">
+            <div class="logo-symbol">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    <path d="M2 17l10 5 10-5" />
+                    <path d="M2 12l10 5 10-5" />
+                </svg>
+            </div>
+            <span>OmniRec AI</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/" class="nav-link">Discover</a></li>
+            <li><a href="/dashboard" class="nav-link active">Intelligence</a></li>
+            <li><a href="/recommendations" class="nav-link">Predictive Engine</a></li>
+        </ul>
+        <a href="/login" class="btn-signin">Sign In</a>
+    </nav>
+
+    <main class="main-content">
+        <header style="margin-bottom: 60px;">
+            <h1 style="font-size: 3.5rem; letter-spacing: -0.04em;">System <span class="gradient-text">Overview</span>
+            </h1>
+            <p style="color: var(--text-muted); font-size: 1.1rem;">Analytical summary from the operational latent
+                factor subspace.</p>
+        </header>
+
+        <div class="stats-container">
+            <div class="stat-card glass">
+                <div class="stat-label">Identified Profiles</div>
+                <div class="stat-value">{{ num_users }}</div>
+            </div>
+            <div class="stat-card glass">
+                <div class="stat-label">Stock Unit Keys</div>
+                <div class="stat-value">{{ num_items }}</div>
+            </div>
+            <div class="stat-card glass">
+                <div class="stat-label">Variance Capture</div>
+                <div class="stat-value">{{ variance|round(1) }}%</div>
+            </div>
+        </div>
+
+        <div class="feature-card glass" style="display: flex; gap: 32px; align-items: center; padding: 40px;">
+            <div
+                style="width: 80px; height: 80px; background: rgba(34, 197, 94, 0.1); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: #16a34a;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+            </div>
+            <div>
+                <h3 style="margin-bottom: 8px;">Operational Health: Synchronized</h3>
+                <p style="color: var(--text-muted);">The SVD matrices are fully converged. All customer-product
+                    interaction vectors are localized within the low-dimensional subspace with high information density.
+                </p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2026 E-Commerce Intelligence Research Group. System V2.0.4 r12</p>
+        </footer>
+    </main>
+</body>
+
+</html>

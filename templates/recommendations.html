@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discovery Results | Intelligence Hub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="wide-container" style="padding-top: 100px; padding-bottom: 100px;">
+        <header style="margin-bottom: 60px;">
+            <p
+                style="color: var(--primary); font-weight: 800; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 15px;">
+                Computed Results</p>
+            <h1>Personalized Affinity Pathways</h1>
+            <p class="sub-header">Active recommendations for segment <span
+                    style="color: #ffffff; border-bottom: 3px solid var(--accent);">#{{ user_id }}</span></p>
+        </header>
+
+        <section class="ms4-panel" style="margin-top: 0; padding: 60px;">
+            <div style="margin-bottom: 60px; border-bottom: 1px solid var(--border); padding-bottom: 25px;">
+                <h2 style="font-family: 'Outfit'; font-size: 2.5rem; margin-bottom: 10px;">Predicted Catalog Matches
+                </h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem;">Mapped from the latent subspace using
+                    pre-trained segment affinities.</p>
+            </div>
+
+            {% if recommendations %}
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px;">
+                {% for item in recommendations %}
+                <div class="metric-card" style="padding: 40px; text-align: center; background: rgba(0,0,0,0.2);">
+                    <span
+                        style="font-size: 0.9rem; color: var(--primary); display: block; margin-bottom: 15px; text-transform: uppercase; font-weight: 800; letter-spacing: 2px;">Item
+                        Code</span>
+                    <code
+                        style="font-size: 2rem; font-weight: 800; color: #ffffff; font-family: 'Outfit';">{{ item }}</code>
+                    <div
+                        style="margin-top: 25px; font-size: 0.9rem; color: #10b981; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                        <span
+                            style="width: 10px; height: 10px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981;"></span>
+                        High Affinity Segment
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div style="text-align: center; padding: 60px; border: 2px dashed var(--border); border-radius: 40px;">
+                <p style="color: var(--text-muted); font-size: 1.3rem;">No predictive affinities found for this specific
+                    customer profile.</p>
+            </div>
+            {% endif %}
+
+            <div style="margin-top: 80px; text-align: center;">
+                <a href="/"
+                    style="color: white; background: var(--primary); text-decoration: none; font-weight: 800; font-size: 1rem; padding: 20px 40px; border-radius: 100px; transition: all 0.2s; display: inline-block;">
+                    Return to Intelligence Dashboard
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 E-commerce Intelligence Hub | Results verified for segment #{{ user_id }}</p>
+        </footer>
+    </div>
+</body>
+
+</html>

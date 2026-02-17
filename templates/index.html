@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Recommendation Engine | Institutional Analytics Hub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="wide-container">
+        <!-- Hero Section -->
+        <header>
+            <h1>AI Recommendation<br>Engine</h1>
+            <p class="sub-header">Institutional-grade product affinity mapping and e-commerce intelligence across global
+                customer segments.</p>
+        </header>
+
+        <!-- KPI Metrics - Wide Layout -->
+        <section class="metrics-section">
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <span class="val">5878</span>
+                    <span class="lbl">Unique Profiles</span>
+                </div>
+                <div class="metric-card">
+                    <span class="val">4631</span>
+                    <span class="lbl">Catalog Items</span>
+                </div>
+                <div class="metric-card">
+                    <span class="val">96.9%</span>
+                    <span class="lbl">Model Variance</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wide Feature Showcase -->
+        <section class="feature-showcase">
+            <div class="feature-content">
+                <h2>Predictive Subspace Engineering</h2>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="f-icon"></div>
+                        <div class="f-text">
+                            <h3>SVD Matrix Factorization</h3>
+                            <p>Utilizing high-rank Singular Value Decomposition to discover latent interactions between
+                                customer IDs and the item catalog.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="f-icon" style="background: var(--accent); box-shadow: 0 0 15px var(--accent);">
+                        </div>
+                        <div class="f-text">
+                            <h3>Real-time Affinity Compute</h3>
+                            <p>Calculating product scoring vectors instantly as segments are retrieved from the
+                                enterprise database.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Technical Highlight -->
+            <div class="ms4-panel">
+                <div class="ms4-header">
+                    <span class="ms4-label">● Milestone 4: Integration</span>
+                    <span class="ms4-date">10 Feb</span>
+                </div>
+                <div class="f-text">
+                    <h3>System Deployment & Deployment Readiness</h3>
+                    <p>Objective: Deploy the recommendation engine and integrate it with the platform logic seamlessly.
+                    </p>
+                    <p style="margin-top: 15px; font-size: 0.9rem; color: #10b981;">● Status: Final performance and
+                        reliability tests successfully concluded.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Action Console - Centered Wide -->
+        <section class="discovery-section">
+            <div class="wide-container" style="padding: 0;">
+                <h2>Get Recommendations</h2>
+                <p class="desc">Query the centralized discovery hub for targeted product suggestions based on specific
+                    customer ID segmentations.</p>
+
+                <form action="/get_recs" method="post" class="search-hub">
+                    <input type="number" name="user_id" placeholder="Enter Customer segment ID (e.g. 12346)" required>
+                    <button type="submit">Recommend</button>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 E-commerce Intelligence Hub | Powered by SVD Matrix Decomposition Engines</p>
+        </footer>
+    </div>
+</body>
+
+</html>
