@@ -195,7 +195,108 @@ INDEX_HTML = """
 </html>
 """
 
-# Recommendations page would follow the same style (omitted for brevity but logic remains same)
+RECS_HTML = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations for User {{ user_id }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #00d2ff;
+            --glass: rgba(15, 23, 42, 0.8);
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                        url('/static/black-friday-sales-sign-neon-light_23-2151833076.avif');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 2rem;
+        }
+        .main-container {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            padding: 3rem;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #fff, #00d2ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .rec-list {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        .rec-item {
+            background: rgba(255, 255, 255, 0.05);
+            margin-bottom: 10px;
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: 0.3s;
+        }
+        .rec-item:hover {
+            background: rgba(0, 210, 255, 0.1);
+            transform: translateX(5px);
+            border-color: var(--accent);
+        }
+        .product-id {
+            color: var(--accent);
+            font-weight: 700;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <h1>Suggestions for User #{{ user_id }}</h1>
+        <ul class="rec-list">
+            {% for item in recommendations %}
+            <li class="rec-item">
+                <span>Product ID</span>
+                <span class="product-id">#{{ item }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="/" class="back-btn">← Back to Dashboard</a>
+    </div>
+</body>
+</html>
+"""
 
 # --- ROUTES ---
 
@@ -216,9 +317,8 @@ def get_recs():
 
 @app.route('/recommendations/<int:user_id>')
 def show_recommendations(user_id):
-    # Logic to fetch and show recs in a similar UI card
-    recs = model.get_recommendations(user_id, n=10) if model else ["Product A", "Product B"]
-    return f"Displaying Recommendations for User {user_id}: {recs}" # Replace with styled template
+    recs = model.get_recommendations(user_id, n=10) if model else ["101", "202", "303", "404", "505"]
+    return render_template_string(RECS_HTML, user_id=user_id, recommendations=recs)
 
 def open_browser():
     webbrowser.open_new("https://shopsmart-app-lovable.lovable.app")

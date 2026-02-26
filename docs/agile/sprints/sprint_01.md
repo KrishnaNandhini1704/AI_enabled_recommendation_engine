@@ -4,7 +4,7 @@
 **Sprint Goal:** Improve the visual quality of recommendations and add item metadata.
 
 ## Committed Items
-- [ ] **TECH-01**: UI Refinement for Recommendations page.
+- [x] **TECH-01**: UI Refinement for Recommendations page.
 - [ ] **FEAT-01**: Display Item Category and Price.
 - [ ] **FEAT-02**: User ID Autocomplete.
 
