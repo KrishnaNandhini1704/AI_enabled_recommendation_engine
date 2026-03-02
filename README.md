@@ -1,5 +1,6 @@
 🛍️ AI Enabled Recommendation Engine for E-Commerce Platform
-📌 Overview
+
+Overview:
 
 This project is an AI-powered recommendation engine designed for e-commerce platforms to provide personalized product recommendations to users. The system analyzes user behavior, preferences, and historical interaction data to suggest relevant products, improving customer experience and increasing sales conversion rates.
 
@@ -48,10 +49,7 @@ Returns top-N recommended products to the user.
 ├── app.py              # Main application file
 ├── requirements.txt    # Dependencies
 └── README.md           # Project documentation
-🛠️ Installation
-git clone https://github.com/your-username/AI_enabled_recommendation_engine.git
-cd AI_enabled_recommendation_engine
-pip install -r requirements.txt
+
 ▶️ Usage
 python app.py
 
@@ -71,7 +69,3 @@ Real-time streaming data integration
 🎯 Objective
 
 To build an intelligent recommendation system that enhances user engagement, improves product discoverability, and drives higher revenue for e-commerce businesses.
-
-📬 Contact
-
-For any queries or suggestions, feel free to reach out.
